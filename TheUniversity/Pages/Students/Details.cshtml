@@ -45,6 +45,18 @@
             @Html.DisplayFor(model => model.Student.EnrollDate)
         </dd>
     </dl>
+    <hr />
+    <h4>Student's Courses</h4>
+    @if (Model.Student.Courses != null)
+    {
+    <ul>
+    @foreach (var item in Model.Student.Courses)
+    {
+        <li>@Html.DisplayFor(modelItem => item.Title)</li>
+    }
+    </ul>
+    }
+    <hr />
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Student.StudentID">Edit</a> |

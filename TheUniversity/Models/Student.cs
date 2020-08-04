@@ -41,6 +41,6 @@ namespace TheUniversity.Models
 
         public HomeSchool School { get; set; }
 
-        public ICollection<Course> Courses { get; }
+        public ICollection<Course> Courses { get; set; }
     }
 }

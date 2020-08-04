@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using TheUniversity.Data;
 using TheUniversity.Models;
 
 namespace TheUniversity.Pages.Students
@@ -23,6 +20,12 @@ namespace TheUniversity.Pages.Students
         [BindProperty]
         public Student Student { get; set; }
 
+        [BindProperty]
+        public ICollection<Course> CourseCollection { get; set; }
+
+        [BindProperty]
+        public List<int> CourseList { get; set; }
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -31,6 +34,7 @@ namespace TheUniversity.Pages.Students
             }
 
             Student = await _context.Student.FirstOrDefaultAsync(m => m.StudentID == id);
+            CourseCollection = await _context.Course.ToListAsync<Course>();
 
             if (Student == null)
             {
@@ -48,10 +52,23 @@ namespace TheUniversity.Pages.Students
                 return Page();
             }
 
+            List<int> courseList = CourseList.ToList();
+
+            foreach (var courseId in courseList)
+            {
+                Enrollment enrollment = new Enrollment();
+                enrollment.StudentID = Student.StudentID;
+                enrollment.CourseID = courseId;
+
+                _context.Enrollment.Add(enrollment);
+                _context.SaveChanges();
+            }
+
             _context.Attach(Student).State = EntityState.Modified;
 
             try
             {
+                _context.Student.Update(Student);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -67,6 +84,21 @@ namespace TheUniversity.Pages.Students
             }
 
             return RedirectToPage("./Index");
+        }
+
+        private void SaveCourseEnrollments()
+        {
+            List<int> courseList = CourseList.ToList();
+
+            foreach (var courseId in courseList)
+            {
+                Enrollment enrollment = new Enrollment();
+                enrollment.StudentID = Student.StudentID;
+                enrollment.CourseID = courseId;
+
+                _context.Enrollment.Add(enrollment);
+                _context.SaveChanges();
+            }
         }
 
         private bool StudentExists(int id)

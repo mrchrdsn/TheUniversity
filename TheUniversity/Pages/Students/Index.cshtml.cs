@@ -30,10 +30,10 @@ namespace TheUniversity.Pages.Students
             PdfTranscript transcript = new PdfTranscript();
             transcript.GetTranscript();
 
-            //Student = await _context.Student.ToListAsync();
-            Student = await _context.Student
-                .Include(h => h.School)
-                .Include(c => c.Courses).ToListAsync();
+            Student = await _context.Student.ToListAsync();
+            //Student = await _context.Student
+                //.Include(h => h.School)
+                //.Include(c => c.Courses).ToListAsync();
         }
     }
 }
