@@ -28,7 +28,10 @@ namespace TheUniversity.Pages.Students
                 return NotFound();
             }
 
-            Student = await _context.Student.FirstOrDefaultAsync(m => m.StudentID == id);
+            Student = await _context.Student
+                .Include(e => e.Enrollments)
+                .ThenInclude(c => c.Course)
+                .FirstOrDefaultAsync(m => m.StudentID == id);
 
             if (Student == null)
             {

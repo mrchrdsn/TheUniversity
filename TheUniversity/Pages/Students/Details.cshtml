@@ -47,14 +47,23 @@
     </dl>
     <hr />
     <h4>Student's Courses</h4>
-    @if (Model.Student.Courses != null)
+    @if (Model.Student.Enrollments != null)
     {
-    <ul>
-    @foreach (var item in Model.Student.Courses)
+<table class="table">
+    <tr>
+        <td>Course Title</td>
+        <td>Course Credits</td>
+        <td>Course Average</td>
+    </tr>
+    @foreach (var item in Model.Student.Enrollments)
     {
-        <li>@Html.DisplayFor(modelItem => item.Title)</li>
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.Course.Title)</td>
+    <td>@Html.DisplayFor(modelItem => item.Course.Credits)</td>
+    <td>100</td>
+</tr>
     }
-    </ul>
+</table>
     }
     <hr />
 </div>

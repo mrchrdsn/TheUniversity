@@ -2,13 +2,13 @@
 @model TheUniversity.Pages.Courses.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Course List Page";
 }
 
-<h1>Index</h1>
+<h1>Course List Page</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Course</a>
 </p>
 <table class="table">
     <thead>
@@ -40,7 +40,9 @@
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CourseID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.CourseID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CourseID">Delete</a>
+                <a asp-page="./Delete" asp-route-id="@item.CourseID">Delete</a> |
+                <a asp-page="/Assignments/Index" asp-route-id="@item.CourseID">View Assignments</a> |
+                <a asp-page="/Assignments/Create" asp-route-id="@item.CourseID">Add Assignment</a>
             </td>
         </tr>
 }

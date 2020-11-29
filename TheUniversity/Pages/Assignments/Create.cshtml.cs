@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using TheUniversity.Data;
 using TheUniversity.Models;
 
 namespace TheUniversity.Pages.Assignments
 {
     public class CreateModel : PageModel
     {
-        private readonly TheUniversity.Data.SchoolContext _context;
+        private readonly Data.SchoolContext _context;
 
-        public CreateModel(TheUniversity.Data.SchoolContext context)
+        public CreateModel(Data.SchoolContext context)
         {
             _context = context;
         }

@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheUniversity", "TheUniversity\TheUniversity.csproj", "{EAF43A79-8C3C-40BE-B14F-E0D7B21B9796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.Tests", "Project.Tests\Project.Tests.csproj", "{C9CF8373-6632-4F0C-BEFB-B0AC7381A7D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Project.Tests", "Project.Tests\Project.Tests.csproj", "{C9CF8373-6632-4F0C-BEFB-B0AC7381A7D8}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HSDB", "..\..\TheUniversity\HSDB\HSDB.sqlproj", "{F00C2417-D751-4B70-9390-3984A420F573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{C9CF8373-6632-4F0C-BEFB-B0AC7381A7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9CF8373-6632-4F0C-BEFB-B0AC7381A7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9CF8373-6632-4F0C-BEFB-B0AC7381A7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F00C2417-D751-4B70-9390-3984A420F573}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

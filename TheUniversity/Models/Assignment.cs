@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace TheUniversity.Models
         [Display(Name = "Assignment Description")]
         public string AssignmentDescription { get; set; }
 
+        [Display(Name = "Assignment Grade")]
         public int AssignmentGrade { get; set; }
     }
 }
