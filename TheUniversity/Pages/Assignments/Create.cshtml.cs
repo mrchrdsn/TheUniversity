@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TheUniversity.Models;
+using System.Linq;
 
 namespace TheUniversity.Pages.Assignments
 {
@@ -14,8 +15,15 @@ namespace TheUniversity.Pages.Assignments
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int? id)
         {
+            string courseName = _context.Course
+                .Where(x => x.CourseID == id)
+                .Select(y => y.Title)
+                .FirstOrDefault();
+
+            ViewData["CourseName"] = courseName;
+
             return Page();
         }
 

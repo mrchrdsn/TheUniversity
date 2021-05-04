@@ -15,9 +15,15 @@ namespace TheUniversity.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
-            modelBuilder.Entity<Student>().ToTable("Student");
+            modelBuilder.Entity<Student>()
+                .Ignore(t => t.OverallAverage)
+                .Ignore(u => u.OverallGradePointAverage)
+                .ToTable("Student");
             modelBuilder.Entity<SchoolAdministrator>().ToTable("SchoolAdministrator");
-            modelBuilder.Entity<Course>().ToTable("Course");
+            modelBuilder.Entity<Course>()
+                .Ignore(x => x.CourseAverage)
+                .Ignore(y => y.CourseGradePointAverage)
+                .ToTable("Course");
             modelBuilder.Entity<Assignment>().ToTable("Assignment");
             modelBuilder.Entity<HomeSchool>().ToTable("HomeSchool");
         }

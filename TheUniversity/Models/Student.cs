@@ -41,6 +41,10 @@ namespace TheUniversity.Models
 
         public HomeSchool School { get; set; }
 
+        public double OverallAverage { get; set; }
+
+        public double OverallGradePointAverage { get; set; }
+
         public ICollection<Enrollment> Enrollments { get; set; }
 
         public ICollection<Course> Courses { get; set; }

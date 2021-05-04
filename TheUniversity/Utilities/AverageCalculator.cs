@@ -15,7 +15,6 @@ namespace TheUniversity.Utilities
         public double Calculate()
         {
             double sum = _inputList.Sum();
-            //var result = (sum / _inputList.Count);
             double output = Math.Round((sum / _inputList.Count), 3);
 
             return output;

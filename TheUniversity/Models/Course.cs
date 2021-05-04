@@ -19,6 +19,10 @@ namespace TheUniversity.Models
 
         public int Credits { get; set; }
 
+        public double CourseAverage { get; set; }
+
+        public double CourseGradePointAverage { get; set; }
+
         public ICollection<Enrollment> Enrollments { get; }
 
         public ICollection<Assignment> Assignments { get; }

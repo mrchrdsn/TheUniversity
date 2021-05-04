@@ -11,27 +11,21 @@
     <h4>School Name</h4>
     @Html.DisplayFor(model => model.Student.School.SchoolName)
     <hr />
-    <h4>Student</h4>
+    Details For:
+    @Html.DisplayFor(model => model.Student.LastName),
+    @Html.DisplayFor(model => model.Student.FirstName)
+    &nbsp;@Html.DisplayFor(model => model.Student.MiddleName)
+
+    @if(Model.Student.OverallAverage.Equals(double.NaN) == false)
+    {
+    <div>
+    Overall Average: &nbsp; @Html.DisplayFor(model => model.Student.OverallAverage)&nbsp;
+    Overall Student Grade Point Average: @Html.DisplayFor(model => model.Student.OverallGradePointAverage)
+    </div>
+    }
+    @*<h4>Student</h4>*@
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.MiddleName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.MiddleName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.LastName)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Student.GradeLevel)
         </dt>
@@ -49,21 +43,21 @@
     <h4>Student's Courses</h4>
     @if (Model.Student.Enrollments != null)
     {
-<table class="table">
-    <tr>
-        <td>Course Title</td>
-        <td>Course Credits</td>
-        <td>Course Average</td>
-    </tr>
-    @foreach (var item in Model.Student.Enrollments)
-    {
-<tr>
-    <td>@Html.DisplayFor(modelItem => item.Course.Title)</td>
-    <td>@Html.DisplayFor(modelItem => item.Course.Credits)</td>
-    <td>100</td>
-</tr>
-    }
-</table>
+        <table class="table">
+            <tr>
+                <td>Course Title</td>
+                <td>Course Credits</td>
+                <td>Course Average</td>
+            </tr>
+            @foreach (var item in Model.Student.Enrollments)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Course.Title)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Course.Credits)</td>
+                    <td>100</td>
+                </tr>
+            }
+        </table>
     }
     <hr />
 </div>
